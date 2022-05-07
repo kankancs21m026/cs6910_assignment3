@@ -6,12 +6,14 @@ from tqdm import tqdm
 import random 
 import time 
 import wandb
+import numpy as np
 from Utility.Encoder import Encoder
 from Utility.Decoder import Decoder
 from Utility.Attention import BahdanauAttention
 from Utility.GetLayer import get_layer
-
-class Seq2Seq():
+from Utility.DataLoader import downloadDataSet,get_files,tokenize,preprocess_data
+import pandas as pd 
+class SequenceTOSequence():
     def __init__(self, parameters):
         self.embedding_dim = parameters.embedding_dim
         self.encoder_layers = parameters.encoder_layers
@@ -23,7 +25,8 @@ class Seq2Seq():
         self.stats = []
         self.batch_size = parameters.batch_size
         self.apply_beam_search = parameters.apply_beam_search
-    
+        self.restoreBestModel=parameters.restoreBestModel
+        self.patience=parameters.patience
     def build(self, loss, optimizer, metric):
         self.loss = loss
         self.optimizer = optimizer
@@ -34,6 +37,7 @@ class Seq2Seq():
         self.targ_tokenizer = targ_tokenizer
         self.create_model()
     
+  
     def create_model(self):
 
         encoder_vocab_size = len(self.input_tokenizer.word_index) + 1
@@ -113,7 +117,7 @@ class Seq2Seq():
         batch_loss = loss / target.shape[1]
         
         return batch_loss, self.metric.result()
-
+  
 
     def fit(self, dataset, val_dataset, batch_size=128, epochs=5, wandb=False, teacher_forcing_ratio=1.0):
 
@@ -132,11 +136,19 @@ class Seq2Seq():
         self.max_input_len = sample_inp.shape[1]
 
         
-
+        self.bestEncoder=self.encoder
+        self.bestDecoder=self.decoder
+        self.bestoptimizer=self.optimizer
         
+        accuracyDegradePatience=0
+        self.oldaccuracy=0
         for epoch in  tqdm(range(1, epochs+1), total = epochs,desc="Epochs "):
-           
-
+             
+            if(accuracyDegradePatience>=self.patience):
+                self.encoder=self.bestEncoder
+                self.decoder=self.bestDecoder
+                self.optimizer=self.bestoptimizer
+                break
             ## Training loop ##
             total_loss = 0
             total_acc = 0
@@ -145,7 +157,7 @@ class Seq2Seq():
             starting_time = time.time()
             enc_state = self.encoder.initialize_hidden_state(self.batch_size)
 
-            itr=0
+            
            
             for batch, (input, target) in enumerate(dataset.take(steps_per_epoch)):
                
@@ -171,7 +183,12 @@ class Seq2Seq():
 
             avg_val_acc = total_val_acc / steps_per_epoch_val
             avg_val_loss = total_val_loss / steps_per_epoch_val
-
+            if(self.oldaccuracy>avg_val_acc):
+              accuracyDegradePatience+=1
+            else:
+              self.bestEncoder=self.encoder
+              self.bestDecoder=self.decoder
+              self.bestoptimizer=self.optimizer
             print( "\nTrain Loss: {0:.4f} Train Accuracy: {1:.4f} Validation Loss: {2:.4f} Validation Accuracy: {3:.4f}".format(avg_loss, avg_acc*100, avg_val_loss, avg_val_acc*100))
             
             time_taken = time.time() - starting_time
