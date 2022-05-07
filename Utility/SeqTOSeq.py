@@ -7,11 +7,6 @@ import random
 import time 
 import wandb
 import numpy as np
-from Utility.Encoder import Encoder
-from Utility.Decoder import Decoder
-from Utility.Attention import BahdanauAttention
-from Utility.GetLayer import get_layer
-from Utility.DataLoader import downloadDataSet,get_files,tokenize,preprocess_data
 import pandas as pd 
 class SequenceTOSequence():
     def __init__(self, parameters):
@@ -27,9 +22,15 @@ class SequenceTOSequence():
         self.apply_beam_search = parameters.apply_beam_search
         self.restoreBestModel=parameters.restoreBestModel
         self.patience=parameters.patience
-    def build(self, loss, optimizer, metric):
+    def build(self, loss, metric,optimizer='adam',lr=0.001):
         self.loss = loss
-        self.optimizer = optimizer
+        if(optimizer=='adam'):
+          self.optimizer=tf.keras.optimizers.Adam(learning_rate=lr)
+        if(optimizer=='nadam'):
+          self.optimizer=tf.keras.optimizers.Nadam(learning_rate=lr)
+        else:
+          self.optimizer=tf.keras.optimizers.RMSprop(learning_rate=lr)
+         
         self.metric = metric
 
     def set_vocabulary(self, input_tokenizer, targ_tokenizer):
@@ -64,7 +65,7 @@ class SequenceTOSequence():
             ## We use Teacher forcing to train the network
             ## Each target at timestep t is passed as input for timestep t + 1
 
-            if random.random() < self.teacher_forcing_ratio:
+            if  (self.apply_teacher_forcing==True):
               
                 for t in range(1, target.shape[1]):
 
@@ -119,10 +120,10 @@ class SequenceTOSequence():
         return batch_loss, self.metric.result()
   
 
-    def fit(self, dataset, val_dataset, batch_size=128, epochs=5, wandb=False, teacher_forcing_ratio=1.0):
+    def fit(self, dataset, val_dataset, batch_size=128, epochs=5, wandb=None, apply_teacher_forcing=True):
 
         self.batch_size = batch_size
-        self.teacher_forcing_ratio = teacher_forcing_ratio
+        self.apply_teacher_forcing = apply_teacher_forcing
 
         steps_per_epoch = len(dataset) // self.batch_size
         steps_per_epoch_val = len(val_dataset) // self.batch_size
@@ -189,17 +190,18 @@ class SequenceTOSequence():
               self.bestEncoder=self.encoder
               self.bestDecoder=self.decoder
               self.bestoptimizer=self.optimizer
+              self.oldaccuracy=avg_val_acc
             print( "\nTrain Loss: {0:.4f} Train Accuracy: {1:.4f} Validation Loss: {2:.4f} Validation Accuracy: {3:.4f}".format(avg_loss, avg_acc*100, avg_val_loss, avg_val_acc*100))
             
             time_taken = time.time() - starting_time
             self.stats.append({"epoch": epoch,
-                            "train loss": avg_loss,
-                            "val loss": avg_val_loss,
-                            "train acc": avg_acc*100,
-                            "val acc": avg_val_acc*100,
+                            "train_loss": avg_loss,
+                            "val_loss": avg_val_loss,
+                            "train_acc": avg_acc*100,
+                            "val_acc": avg_val_acc*100,
                             "training time": time_taken})
             
-            if wandb:
+            if not (wandb is None):
                 wandb.log(self.stats[-1])
             
             print(f"\nTime taken for the epoch {time_taken:.4f}")
