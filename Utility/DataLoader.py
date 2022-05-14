@@ -11,6 +11,7 @@ START_TOKEN="\t"
 END_TOKEN="\n"
 
 
+"""Download dataset if not exists"""
 def downloadDataSet():
    cwd = os.getcwd()
   
@@ -34,6 +35,8 @@ def get_files(language):
   
   return train_dir, val_dir, test_dir
 
+
+"""Generate Tokens"""
 def tokenize(lang,tokenizer=None):
     """ Uses tf.keras tokenizer to tokenize the data/words into characters
     """
