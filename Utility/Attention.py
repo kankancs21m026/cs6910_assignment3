@@ -1,8 +1,16 @@
 import tensorflow as tf
 from tensorflow.keras import layers
 import tensorflow.keras.backend as K
-from tensorflow.keras.preprocessing.text import Tokenizer
-from tqdm import tqdm
+
+
+"""
+This package have Bahdanau Attention
+
+References -
+https://medium.com/deep-learning-with-keras/seq2seq-part-c-basic-encoder-decoder-a7f536f5f510
+https://arxiv.org/abs/1409.0473
+https://arxiv.org/abs/1911.03853
+"""
 class BahdanauAttention(tf.keras.layers.Layer):
   def __init__(self, units):
     super(BahdanauAttention, self).__init__()
