@@ -1,4 +1,4 @@
-# cs6910_assignment3
+# CS6910_assignment3
 
 ## Pre-requists 
 
@@ -14,7 +14,7 @@ Please install following packages in your local machine.
 
  It is **recommanded** to run all the code in **Google Colab**.As most of the program require righ memory and GPU.Please upload the python notebook files available under [Note Book]For more tutorial related to Google colab usage follow the link: [Google Colab](https://colab.research.google.com/)
 ## IPython Notebook Links
- | Question  | Link  |
+ | Question  | Link  |Colab|
 | --- | ----------- | 
 |Question 1,2,3,4| [NoteBook](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/DL_Assignment3_bestmodel.ipynb)|
 |Question 2(sweep)| [NoteBook](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/DL_Assignment3_Sweep.ipynb)|
