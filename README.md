@@ -12,7 +12,7 @@ Please install following packages in your local machine.
 # 
 # Google Colab
 
- It is **recommanded** to run all the code in **Google Colab**.Please upload the python notebook files available under [Note Book]For more tutorial related to Google colab usage follow the link: [Google Colab](https://colab.research.google.com/)
+ It is **recommanded** to run all the code in **Google Colab**.As most of the program require righ memory and GPU.Please upload the python notebook files available under [Note Book]For more tutorial related to Google colab usage follow the link: [Google Colab](https://colab.research.google.com/)
 ## IPython Notebook Links
  | Question  | Link  |
 | --- | ----------- | 
