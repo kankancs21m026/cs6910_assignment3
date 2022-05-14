@@ -44,6 +44,8 @@ parser.add_argument('--batch_size', type=int, required=False)
 
 parser.add_argument('--latent_dim', type=int, required=False)
 parser.add_argument('--attention', type=bool, required=False)
+parser.add_argument('--save_outputs', type=str, required=False)
+
 
 
 args = parser.parse_args()
@@ -184,7 +186,7 @@ param=Parameters(language="te",\
         attention=attention\
         )
 param.patience=patience
-
+param.save_outputs=save_outputs
 #Define model
 model = SequenceTOSequence(param)
 model.set_vocabulary(input_tokenizer, targ_tokenizer)
