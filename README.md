@@ -22,6 +22,7 @@ Please install following packages in your local machine.
 |Question 6,7(Attention Best Model)| [Best Model](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/DL_Assignment3_bestmodel_Attention.ipynb)|[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ukUAwCJGfhbuqOAqFqDR0oxq1epsl8h6?usp=sharing)|
 |Question 8(GPT)|  [GPT](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/gpt2_code.ipynb)|[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1OYdHwjafuuFax8KfG6zgV2Vzc2uIEb_-?usp=sharing)|
 
+
 # Command Line
 
 ## Pre-requisite
@@ -75,3 +76,21 @@ python Seq2Seq.py --language="te" --optimizer="adam" --lr="0.0005" --dropout="0.
 | --- | ----------- | 
 |predictions_attention | [Link](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/predictions_attention.csv)|
 |predictions_vanilla| [Link](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/predictions_vanilla.csv)|
+
+
+
+
+# Questions 
+- **Question 1,3,4 (Vanilla )** : Check the note book [NoteBook](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/DL_Assignment3_bestmodel.ipynb).Alternatively ,
+run the [Seq2Seq.py](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/Seq2Seq.py) python file following the instruction provided above.
+In the ipython notebook we have couple of  observations has been used in Question 3 and 4. 
+
+- **Question 2**: Check the note book [NoteBook](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/DL_Assignment3_Sweep.ipynb) to run the sweep configuration.Upload the notebook in the google colab and run the file.Alternatively click the link [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1m9cEvnt8-6X37DSdTtd1ah0JAlS9BypG?usp=sharing)
+
+- **Question 5 (Attention)** : Check the note book [NoteBook](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/DL_Assignment3_bestmodel_Attention.ipynb).Please note ,In this note book ,we have shown numarious observations with attention model and also compare results with Vanilla model.So, it is recommanded to run this file instead the python file.
+ In case some one want to execute python file please run run the [Seq2Seq.py](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/Seq2Seq.py) python file.Ensure to set parameter **--attention="True"**.
+To run the sweep configuration for Attention, upload [Sweep](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/assignment_3_With_attention_sweep.ipynb) to google colab and execute it with High RAM configuration.Alternatively click  [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1CYzgZo3MS0qpi2fYousCdVcAAXRz7RGQ?usp=sharingg)
+
+- **Question 6 (Connectivity)** : Excute the note book [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ukUAwCJGfhbuqOAqFqDR0oxq1epsl8h6?usp=sharing) .Please note this is same notebook used for question 5.
+
+- **Question 8** : Open the notebook [GPT](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/gpt2_code.ipynb) or click here|[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1OYdHwjafuuFax8KfG6zgV2Vzc2uIEb_-?usp=sharing).Before execution , it is crucial to upload dataset **songs.txt**.Find this from here [Dataset](https://drive.google.com/file/d/1E0RGfMFvMUna6X9RFdBwAX2lR6g8bvBV/view?usp=sharing)
