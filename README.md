@@ -99,34 +99,10 @@ python PartA_Question2_Sweep.py
 ```
 
 
+# Prediction results
 
-##  Question 4,5
-Run the best model 
 
-### Pre-requisite
-
-In case there is no file **model-best.h5** in PARTA directry , please run the following command
-```
-PartA_parta_qestion_4_BestModel.py
-```
-**Alternatively** please download the model from below link 
-https://drive.google.com/file/d/1bdMa03-Jf-zlZi1zL1IQLGThvNfAfHAz/view?usp=sharing
-
-View the run in wanDb:
-https://wandb.ai/kankan-jana/CS6910_Assignment-2/runs/179siwiu/files?workspace=user-kankan-jana
-
-Download the model (image given below)
-
-![image](https://github.com/kankancs21m026/cs6910_assignment2/blob/main/PART%20A/image/wandb.jpg)
-
-After that  run below set of commands
-#### Question 4
-
-```
-python PartA_parta_qestion_4.py
-```
-#### Question 5
-
-```
-python PartA_parta_qestion_5.py
-```
+ | File  | Link  |
+| --- | ----------- | 
+|predictions_attention | [Link](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/predictions_attention.csv)|
+|predictions_vanilla| [Link](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/predictions_vanilla.csv)|
