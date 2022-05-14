@@ -46,7 +46,7 @@ Run following files sequentially
 Command:
 
 ```
-python Seq2Seq.py --language="te" --optimizer="adam" --lr="0.0005" --dropout="0.5" --inp_emb_size="64" --epoch="25" --cell_type="lstm" --num_of_encoders="1" --num_of_decoders="1" --patience="5" --batch_size="128" --latent_dim="256" --attention="False" --teacher_forcing_ratio="1"
+python Seq2Seq.py --language="te" --optimizer="adam" --lr="0.0005" --dropout="0.5" --inp_emb_size="64" --epoch="25" --cell_type="lstm" --num_of_encoders="1" --num_of_decoders="1" --patience="5" --batch_size="128" --latent_dim="256" --attention="False" --teacher_forcing_ratio="1" --save_outputs="save.csv"
 ```
 
 | Param  | Accepted Values | Description|Default|
@@ -65,7 +65,7 @@ python Seq2Seq.py --language="te" --optimizer="adam" --lr="0.0005" --dropout="0.
 | latent_dim |  number  |latent dim | 256|
 | attention |  Bool  |Apply attention layer | False|
 | teacher_forcing_ratio |  Float  |Apply teacher forcing | 1|
-
+| save_outputs |  string  |Save result of prediction| None|
 
 
 # Prediction results
