@@ -16,20 +16,19 @@ Please install following packages in your local machine.
 ## IPython Notebook Links
  | Question  | Link  |
 | --- | ----------- | 
-|Question 1| [NoteBook](https://github.com/kankancs21m026/cs6910_assignment2/blob/main/PART%20A/NoteBooks/PartA_Question1_2_3_Sweep.ipynb)|
-|Question 2| [NoteBook](https://github.com/kankancs21m026/cs6910_assignment2/blob/main/PART%20A/NoteBooks/PartA_Qestion_4_5.ipynb)|
+|Question 1,2,3,4| [NoteBook](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/DL_Assignment3_bestmodel.ipynb)|
+|Question 2(sweep)| [NoteBook](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/DL_Assignment3_Sweep.ipynb)|
+|Question 5(Attention)| [Sweep](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/assignment_3_With_attention_sweep.ipynb) [Best Model](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/DL_Assignment3_bestmodel_Attention.ipynb)|
 
 # Command Line
 
 ## Pre-requisite
-It is optional to download and unzip iNeuralist datast before executing the programs.All program will automatically download these.
+It is optional to download and unzip dakshina_dataset datast before executing the programs.All program will automatically download these.
 Links:
-- Download the zip file from following link and place the file under parent directry  **PART A**.
-[nature_12K](https://storage.googleapis.com/wandb_datasets/nature_12K.zip)
+- Download the zip file from following link and place the file under parent directry 
+[dakshina_dataset_v1]( https://storage.googleapis.com/gresearch/dakshina/dakshina_dataset_v1.0.tar)
 - Unzip the file in same directry
 
-
-Assuming you currently in **PART A** directory
 Run following files sequentially
 
 ## Main package
