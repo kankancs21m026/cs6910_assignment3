@@ -94,3 +94,4 @@ To run the sweep configuration for Attention, upload [Sweep](https://github.com/
 - **Question 6 (Connectivity)** : Excute the note book [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ukUAwCJGfhbuqOAqFqDR0oxq1epsl8h6?usp=sharing) .Please note this is same notebook used for question 5.
 
 - **Question 8** : Open the notebook [GPT](https://github.com/kankancs21m026/cs6910_assignment3/blob/main/gpt2_code.ipynb) or click here|[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1OYdHwjafuuFax8KfG6zgV2Vzc2uIEb_-?usp=sharing).Before execution , it is crucial to upload dataset **songs.txt**.Find this from here [Dataset](https://drive.google.com/file/d/1E0RGfMFvMUna6X9RFdBwAX2lR6g8bvBV/view?usp=sharing)
+- Also find link of the trained model [Model](https://drive.google.com/file/d/1Xl4GbiWv_hz4za8MDO1zKh3pOsnJWZf1/view?usp=sharing)
