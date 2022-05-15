@@ -1,5 +1,5 @@
 # CS6910_assignment3
-
+Report [wandb](https://wandb.ai/kankan-jana/CS6910_Assignment3/reports/CS6910-Assignment-3--VmlldzoyMDA4MDUw)
 ## Pre-requists 
 
 **Python packages**	
